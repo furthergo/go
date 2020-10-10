@@ -301,7 +301,7 @@ func (client *Client) Go(serviceMethod string, args interface{}, reply interface
 	call.Args = args
 	call.Reply = reply
 	if done == nil {
-		done = make(chan *Call, 10) // buffered.
+		done = make(chan *Call, 1) // buffered.
 	} else {
 		// If caller passes done != nil, it must arrange that
 		// done has enough buffer for the number of simultaneous
